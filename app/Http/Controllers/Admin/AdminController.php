@@ -12,4 +12,11 @@ class AdminController extends Controller
     {
         return Inertia::render('Admin/Index');
     }
+
+    public function edit_profile()
+    {
+        return Inertia::render('Profile/Edit', [
+            'admin_panel' => true
+        ]);
+    }
 }

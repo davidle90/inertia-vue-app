@@ -23,6 +23,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/profile', [AdminController::class, 'edit_profile'])->name('admin.profile.edit');
 });
 
 Route::middleware('auth')->group(function () {

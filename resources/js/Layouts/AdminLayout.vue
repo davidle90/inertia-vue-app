@@ -1,5 +1,6 @@
 <script setup>
     import NavLink from '@/Components/NavLink.vue'
+    import Breadcrumbs from '@/Components/Breadcrumbs.vue';
 </script>
 
 <template>
@@ -23,60 +24,66 @@
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-box mr-2"></i>Produkter</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'box']" /> Produkter</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-box mr-2"></i>Kategorier</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'table-cells-large']" /> Kategorier</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-cart-shopping mr-2"></i>Ordrar</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'cart-shopping']" /> Ordrar</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-tags mr-2"></i>Rabattkoder *</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'tags']" /> Rabattkoder *</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-users mr-2"></i>Kunder</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'users']" /> Kunder</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-tags mr-2"></i>Betalningsmetoder *</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'credit-card']" /> Betalningsmetoder *</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-credit-card mr-2"></i>Leveransmetoder *</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'truck']" /> Leveransmetoder *</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-coins mr-2"></i>Lojalitetsprogram *</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'coins']" /> Lojalitetsprogram *</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-chart-line mr-2"></i>Försäljningsstatistik *</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'chart-line']" /> Försäljningsstatistik *</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fa-solid fa-gear mr-2"></i>Inställningar</span>
+                            <span class="whitespace-nowrap"><font-awesome-icon :icon="['fas', 'gear']" /> Inställningar</span>
                         </a>
                     </li>
                 </ul>
                 <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200">
                     <li>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                            <span class="whitespace-nowrap"><i class="fas fa-user mr-2"></i>Profil</span>
-                        </a>
+                        <span class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <NavLink
+                                :href="route('admin.profile.edit')"
+                                method="get"
+                                as="button"
+                            >
+                                Profile
+                            </NavLink>
+                        </span>
                     </li>
                     <li>
                         <span class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
@@ -89,6 +96,17 @@
                             </NavLink>
                         </span>
                     </li>
+                    <li>
+                        <span class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                            <NavLink
+                                :href="route('dashboard')"
+                                method="get"
+                                as="button"
+                            >
+                                Go to public
+                            </NavLink>
+                        </span>
+                    </li>
                 </ul>
             </div>
         </aside>
@@ -98,14 +116,11 @@
                 <nav class="flex" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                         <li class="inline-flex items-center">
-                            <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
-                                <svg class="w-3 h-3 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
-                                </svg>
-                                Hem
+                            <a href="#" class="inline-flex text-sm font-medium text-gray-700 hover:text-blue-600">
+                                <font-awesome-icon :icon="['fas', 'home']" class="mr-1"/> Home
                             </a>
                         </li>
-                       breadcrumbs
+                       <Breadcrumbs />
                     </ol>
                 </nav>
             </div>

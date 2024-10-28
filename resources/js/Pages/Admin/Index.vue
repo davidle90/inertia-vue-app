@@ -1,5 +1,6 @@
 <script setup>
-    import AdminLayout from '@/Layouts/AdminLayout.vue'
+    import AdminLayout from '@/Layouts/AdminLayout.vue';
+    import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -20,6 +21,7 @@
                 >
                     <div class="p-6 text-gray-900">
                         You're logged in!
+                        <font-awesome-icon :icon="['fas', 'user-secret']" />
                     </div>
                 </div>
             </div>
